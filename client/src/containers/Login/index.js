@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
+import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import { CognitoUserPool, AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
+import LoaderButton from '../../components/LoaderButton';
 import config from '../../config';
 import './Login.css';
 
@@ -8,6 +10,7 @@ class Login extends Component {
   state = {
     email: '',
     password: '',
+    isLoading: false,
   };
 
   login(email, password) {
@@ -42,19 +45,26 @@ class Login extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    this.setState({ isLoading: true });
 
     const { email, password } = this.state;
 
     try {
       await this.login(email, password);
-      alert('Logged in');
+      this.props.userHasAuthenticated(true);
     } catch (e) {
       alert(e);
+      this.setState({ isLoading: false });
     }
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, isLoading } = this.state;
+    const { isAuthenticated } = this.props;
+
+    if (isAuthenticated) {
+      return <Redirect to="/" />;
+    }
 
     return (
       <div className="Login">
@@ -76,14 +86,15 @@ class Login extends Component {
               type="password"
             />
           </FormGroup>
-          <Button
+          <LoaderButton
             block
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
-            >
-              Login
-            </Button>
+            isLoading={isLoading}
+            text="Login"
+            loadingText="Logging in…"
+          />
         </form>
       </div>
     );
