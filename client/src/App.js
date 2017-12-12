@@ -44,7 +44,11 @@ class App extends Component {
     };
 
     if (isAuthenticating) {
-      return <div>Loading...</div>;
+      return (
+        <div className="Loading">
+          <h1>Loading...</h1>
+        </div>
+      );
     }
 
     return (

@@ -303,6 +303,21 @@ autoprefixer@^6.3.1:
     postcss "^5.2.16"
     postcss-value-parser "^3.2.3"
 
+aws-sdk@^2.168.0:
+  version "2.168.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.168.0.tgz#561e0a231b8f70a2bee56ff5e508b6efff604fe3"
+  dependencies:
+    buffer "4.9.1"
+    crypto-browserify "1.0.9"
+    events "^1.1.1"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.1.0"
+    xml2js "0.4.17"
+    xmlbuilder "4.2.1"
+
 aws-sdk@^2.6.0:
   version "2.167.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.167.0.tgz#f207dff7f7e9a7883d3b69bd22513444968a36bd"
@@ -1639,6 +1654,10 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+crypto-js@^3.1.9-1:
+  version "3.1.9-1"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
 
 css-color-names@0.0.4:
   version "0.0.4"

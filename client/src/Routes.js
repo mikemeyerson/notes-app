@@ -3,12 +3,16 @@ import { Route, Switch } from 'react-router-dom';
 import AppliedRoute from './components/AppliedRoute';
 import Home from './containers/Home';
 import Login from './containers/Login';
+import Signup from './containers/Signup';
+import NewNote from './containers/NewNote';
 import NotFound from './containers/NotFound';
 
 export default ({ childProps }) => (
   <Switch>
     <AppliedRoute exact path='/' component={Home} props={childProps} />
     <AppliedRoute exact path='/login' component={Login} props={childProps} />
+    <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
+    <AppliedRoute path="/notes/new" exact component={NewNote} props={childProps} />
     <Route component={NotFound} />
   </Switch>
 )
