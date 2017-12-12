@@ -56,6 +56,21 @@ export async function s3Upload(file) {
     .promise();
 }
 
+export async function s3Delete(filename) {
+  if (!await authUser()) {
+    throw new Error('User is not logged in');
+  }
+
+  const s3 = new AWS.S3({ region: config.s3.REGION });
+
+  return s3
+    .deleteObject({
+      Key: filename,
+      Bucket: config.s3.BUCKET,
+    })
+    .promise();
+}
+
 export async function invokeApig({
   path,
   method = 'GET',
