@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import { CognitoUserPool, AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
 import LoaderButton from '../../components/LoaderButton';
@@ -60,11 +59,12 @@ class Login extends Component {
 
   render() {
     const { email, password, isLoading } = this.state;
-    const { isAuthenticated } = this.props;
-
-    if (isAuthenticated) {
-      return <Redirect to="/" />;
-    }
+    // const { from } = this.props.location.state || { from: { pathname: '/' } };
+    //
+    //
+    // if (isComplete) {
+    //   return <Redirect to={from} />;
+    // }
 
     return (
       <div className="Login">

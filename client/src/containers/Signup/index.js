@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { AuthenticationDetails, CognitoUserPool } from 'amazon-cognito-identity-js';
 import config from '../../config';
-import { Redirect } from 'react-router-dom';
 import { HelpBlock, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import LoaderButton from '../../components/LoaderButton';
 import './Signup.css';
@@ -171,10 +170,6 @@ class Signup extends Component {
   }
 
   render() {
-    if (this.props.isAuthenticated) {
-      return <Redirect to="/" />;
-    }
-
     return (
       <div className="Signup">
         {this.state.newUser === null
